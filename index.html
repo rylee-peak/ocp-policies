@@ -1,0 +1,416 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Policies | Office of Commissioner Rylee Peak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .policy-section {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .policy-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .prose p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #374151;
+        }
+        .prose h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+        .prose h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-[#0f172a] text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <!-- Seal/Logo Placeholder -->
+                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center border-2 border-yellow-400 shadow-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight">Office of Commissioner Rylee Peak</h1>
+                    <p class="text-xs text-blue-200 uppercase tracking-wider font-semibold">Official Policy Directory</p>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="sm:hidden bg-slate-800 p-2 rounded text-white hover:bg-slate-700 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row gap-8 w-full flex-grow">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="md:w-64 flex-shrink-0">
+            <nav id="sidebar-nav" class="hidden sm:block sticky top-28 bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 px-3">Policy Index</h3>
+                <ul class="space-y-1">
+                    <li><a href="#welcome" class="nav-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors" data-target="welcome">Welcome</a></li>
+                    <li><a href="#privacy" class="nav-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors" data-target="privacy">Privacy Policy</a></li>
+                    <li><a href="#terms" class="nav-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors" data-target="terms">Terms & Conditions</a></li>
+                    <li><a href="#dei" class="nav-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors" data-target="dei">Diversity, Equity & Inclusion</a></li>
+                    <li><a href="#accessibility" class="nav-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors" data-target="accessibility">Accessibility Policy</a></li>
+                    <li><a href="#ethics" class="nav-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors" data-target="ethics">Ethics & Conduct</a></li>
+                    <li><a href="#public-records" class="nav-link block px-3 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors" data-target="public-records">Public Records Requests</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow bg-white p-6 sm:p-10 rounded-xl shadow-sm border border-slate-200 min-h-[60vh]">
+            
+            <!-- Toast Notification for Copying Links -->
+            <div id="toast" class="fixed bottom-4 right-4 bg-slate-800 text-white px-4 py-2 rounded shadow-lg transform transition-all duration-300 translate-y-20 opacity-0 z-50">
+                Link copied to clipboard!
+            </div>
+
+            <!-- SECTION: Welcome -->
+            <section id="welcome" class="policy-section">
+                <div class="text-center py-10">
+                    <div class="inline-block p-4 bg-blue-50 rounded-full text-blue-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl font-bold text-slate-900 mb-4">Official Policy Directory</h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                        Welcome to the official policy repository for the Office of Commissioner Rylee Peak. We are committed to transparency, equity, and serving the public trust. Please use the navigation menu to review our governing guidelines.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION: Privacy Policy -->
+            <section id="privacy" class="policy-section prose max-w-none">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-900 m-0">Privacy Policy</h1>
+                        <p class="text-sm text-slate-500 mt-2">Last Updated: October 12, 2025</p>
+                    </div>
+                    <button onclick="copyLink('#privacy')" class="text-blue-600 hover:bg-blue-50 p-2 rounded transition flex items-center gap-2 text-sm font-medium border border-blue-200" title="Copy link to this policy">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                        <span class="hidden sm:inline">Copy Link</span>
+                    </button>
+                </div>
+                
+                <h2>1. Introduction</h2>
+                <p>The Office of Commissioner Rylee Peak ("the Office") respects your right to privacy. This policy outlines how we collect, use, and protect the personal information you provide to us through our digital platforms, in correspondence, or during public engagement.</p>
+
+                <h2>2. Information We Collect</h2>
+                <p>We may collect the following types of information:</p>
+                <ul>
+                    <li><strong>Voluntarily Provided Information:</strong> Name, email address, phone number, and physical address when you sign up for newsletters, submit feedback, or contact our office for constituent services.</li>
+                    <li><strong>Automatically Collected Information:</strong> IP addresses, browser types, operating systems, and website browsing patterns collected via standard analytics tools to improve our digital services.</li>
+                </ul>
+
+                <h2>3. How We Use Your Information</h2>
+                <p>Your information is used strictly for official government purposes, including:</p>
+                <ul>
+                    <li>Responding to your inquiries and providing constituent services.</li>
+                    <li>Distributing official updates, newsletters, and public safety announcements.</li>
+                    <li>Analyzing web traffic to improve accessibility and user experience.</li>
+                </ul>
+
+                <h2>4. Public Records Notice</h2>
+                <p>Please be aware that as a government entity, much of the correspondence sent to the Office of Commissioner Rylee Peak—including emails and submitted forms—may be considered a public record under state and federal transparency laws. Such records may be subject to disclosure upon request by third parties, unless exempted by law.</p>
+
+                <h2>5. Security</h2>
+                <p>We implement robust, industry-standard security measures designed to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
+            </section>
+
+            <!-- SECTION: Terms and Conditions -->
+            <section id="terms" class="policy-section prose max-w-none">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-900 m-0">Terms & Conditions</h1>
+                        <p class="text-sm text-slate-500 mt-2">Last Updated: January 5, 2026</p>
+                    </div>
+                    <button onclick="copyLink('#terms')" class="text-blue-600 hover:bg-blue-50 p-2 rounded transition flex items-center gap-2 text-sm font-medium border border-blue-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                        <span class="hidden sm:inline">Copy Link</span>
+                    </button>
+                </div>
+
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing the digital platforms and utilizing the services provided by the Office of Commissioner Rylee Peak, you agree to comply with and be bound by these Terms and Conditions. If you do not agree, please refrain from using our digital services.</p>
+
+                <h2>2. User Conduct</h2>
+                <p>Users agree to use our platforms for lawful purposes only. You are strictly prohibited from:</p>
+                <ul>
+                    <li>Transmitting any unlawful, threatening, defamatory, obscene, or abusive material.</li>
+                    <li>Attempting to interfere with network security, hacking, or attempting to compromise the integrity of our systems.</li>
+                    <li>Impersonating any public official or other person.</li>
+                </ul>
+
+                <h2>3. External Links</h2>
+                <p>Our website may contain links to external, third-party websites for your convenience. The Office of Commissioner Rylee Peak does not endorse, guarantee, or take responsibility for the content, accuracy, or privacy practices of any external sites.</p>
+
+                <h2>4. Intellectual Property</h2>
+                <p>Unless otherwise noted, the text, graphics, and structure of this website are the property of the Office. Official seals, logos, and branding may not be used or reproduced without explicit written consent from the Commissioner's Office.</p>
+
+                <h2>5. Disclaimer of Liability</h2>
+                <p>Information provided on this site is for general guidance and public awareness. While we strive to keep information accurate and up-to-date, the Office makes no warranties regarding the absolute accuracy or completeness of the data. The Office shall not be held liable for any damages arising from the use of this site.</p>
+            </section>
+
+            <!-- SECTION: DEI -->
+            <section id="dei" class="policy-section prose max-w-none">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-900 m-0">Diversity, Equity, and Inclusion (DEI) Policy</h1>
+                        <p class="text-sm text-slate-500 mt-2">Last Updated: March 15, 2026</p>
+                    </div>
+                    <button onclick="copyLink('#dei')" class="text-blue-600 hover:bg-blue-50 p-2 rounded transition flex items-center gap-2 text-sm font-medium border border-blue-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                        <span class="hidden sm:inline">Copy Link</span>
+                    </button>
+                </div>
+
+                <h2>1. Core Commitment</h2>
+                <p>Commissioner Rylee Peak and the entirety of the Office believe that our district's diversity is its greatest strength. We are firmly committed to fostering an inclusive environment that respects, values, and celebrates the unique backgrounds, experiences, and perspectives of all residents and employees.</p>
+
+                <h2>2. Equity in Public Service</h2>
+                <p>We are dedicated to ensuring equitable access to government resources, services, and opportunities. This means actively identifying and dismantling systemic barriers that have historically marginalized specific communities based on race, ethnicity, gender identity, sexual orientation, socioeconomic status, disability, religion, or age.</p>
+
+                <h2>3. Inclusive Workplace</h2>
+                <p>As an employer, the Office of Commissioner Rylee Peak enforces a strict zero-tolerance policy for discrimination and harassment. We actively prioritize diverse hiring practices, equitable pay, and continuous cultural competency training for all staff members.</p>
+
+                <h2>4. Community Engagement</h2>
+                <p>True representation requires listening to all voices. We commit to actively seeking input from underrepresented communities when formulating public policy, planning district projects, and allocating public funds. Translation services and accessible venues are standard requirements for all public Office events.</p>
+            </section>
+
+            <!-- SECTION: Accessibility -->
+            <section id="accessibility" class="policy-section prose max-w-none">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-900 m-0">Accessibility Policy</h1>
+                        <p class="text-sm text-slate-500 mt-2">Last Updated: November 20, 2025</p>
+                    </div>
+                    <button onclick="copyLink('#accessibility')" class="text-blue-600 hover:bg-blue-50 p-2 rounded transition flex items-center gap-2 text-sm font-medium border border-blue-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                        <span class="hidden sm:inline">Copy Link</span>
+                    </button>
+                </div>
+
+                <h2>1. ADA Compliance Commitment</h2>
+                <p>The Office of Commissioner Rylee Peak is committed to ensuring that our facilities, programs, and digital platforms are accessible to all individuals, including those with disabilities, in compliance with Title II of the Americans with Disabilities Act (ADA).</p>
+
+                <h2>2. Digital Accessibility</h2>
+                <p>We are continuously working to make our website conform to the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA standards. This includes ensuring compatibility with screen readers, providing alt-text for images, maintaining high color contrast, and enabling keyboard navigation.</p>
+
+                <h2>3. Requesting Accommodations</h2>
+                <p>If you require an accommodation to participate in a public meeting, access a document, or utilize our services, please contact our ADA Coordinator at least 72 hours prior to the event or requested service date.</p>
+                <ul>
+                    <li><strong>Email:</strong> accessibility@ryleepeakoffice.gov</li>
+                    <li><strong>Phone:</strong> (555) 019-8273</li>
+                    <li><strong>TTY/TDD:</strong> 711 (Relay Service)</li>
+                </ul>
+
+                <h2>4. Feedback and Grievances</h2>
+                <p>If you encounter an accessibility barrier on our website or within our offices, please report it immediately so we can address the issue. Formal grievances regarding ADA compliance can be filed directly through our office portal.</p>
+            </section>
+
+            <!-- SECTION: Ethics -->
+            <section id="ethics" class="policy-section prose max-w-none">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-900 m-0">Ethics & Conduct Policy</h1>
+                        <p class="text-sm text-slate-500 mt-2">Last Updated: February 1, 2026</p>
+                    </div>
+                    <button onclick="copyLink('#ethics')" class="text-blue-600 hover:bg-blue-50 p-2 rounded transition flex items-center gap-2 text-sm font-medium border border-blue-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                        <span class="hidden sm:inline">Copy Link</span>
+                    </button>
+                </div>
+
+                <h2>1. Standard of Integrity</h2>
+                <p>Public service is a public trust. Commissioner Rylee Peak and all staff members are held to the highest standards of ethical conduct, transparency, and accountability. We pledge to make decisions based solely on the public interest.</p>
+
+                <h2>2. Conflicts of Interest</h2>
+                <p>No employee or official within the Office may use their position for private gain. All staff must disclose any potential financial or personal conflicts of interest regarding pending legislation, contracts, or district projects. Affected individuals must recuse themselves from the decision-making process.</p>
+
+                <h2>3. Gift Ban</h2>
+                <p>To prevent undue influence, the Office enforces a strict zero-dollar gift ban. Staff and the Commissioner are prohibited from accepting gifts, meals, event tickets, or favors from lobbyists, contractors, or any entities seeking business with the government.</p>
+
+                <h2>4. Anti-Retaliation (Whistleblower Protection)</h2>
+                <p>The Office encourages the reporting of waste, fraud, and abuse. We strictly prohibit any form of retaliation against employees or members of the public who report ethical violations in good faith.</p>
+            </section>
+
+            <!-- SECTION: Public Records -->
+            <section id="public-records" class="policy-section prose max-w-none">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-slate-900 m-0">Public Records Requests</h1>
+                        <p class="text-sm text-slate-500 mt-2">Last Updated: August 10, 2025</p>
+                    </div>
+                    <button onclick="copyLink('#public-records')" class="text-blue-600 hover:bg-blue-50 p-2 rounded transition flex items-center gap-2 text-sm font-medium border border-blue-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                        <span class="hidden sm:inline">Copy Link</span>
+                    </button>
+                </div>
+
+                <h2>1. Commitment to Transparency</h2>
+                <p>The Office of Commissioner Rylee Peak believes that an informed public is essential to a functioning democracy. We comply fully with all state and federal Freedom of Information Acts (FOIA) and Public Records laws.</p>
+
+                <h2>2. How to Submit a Request</h2>
+                <p>Public records requests must be submitted to the official Records Custodian. To expedite your request, please be as specific as possible regarding the dates, subjects, and types of documents you are seeking.</p>
+                <p>Requests can be submitted via:</p>
+                <ul>
+                    <li><strong>Online Portal:</strong> Available at records.ryleepeakoffice.gov</li>
+                    <li><strong>Email:</strong> records@ryleepeakoffice.gov</li>
+                    <li><strong>Mail:</strong> Records Custodian, Office of Commissioner Rylee Peak, 100 Civic Center Drive, Suite 400.</li>
+                </ul>
+
+                <h2>3. Response Times and Fees</h2>
+                <p>We will acknowledge receipt of your request within 5 business days. While we strive to provide records electronically at no cost, voluminous requests that require significant staff time or physical printing may incur statutory fees. You will be provided with a cost estimate before any charges are incurred.</p>
+
+                <h2>4. Exemptions</h2>
+                <p>Certain records may be redacted or exempt from disclosure under the law to protect individual privacy, active investigations, or sensitive security information. Any redactions will be accompanied by a legal justification.</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#0f172a] text-slate-300 py-8 mt-auto border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-semibold text-white">Office of Commissioner Rylee Peak</p>
+                <p class="text-sm mt-1">100 Civic Center Drive, Suite 400</p>
+                <p class="text-sm">info@ryleepeakoffice.gov | (555) 019-1000</p>
+            </div>
+            <div class="text-sm text-slate-400">
+                &copy; <span id="year"></span> Office of Commissioner Rylee Peak. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Logic -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const sidebarNav = document.getElementById('sidebar-nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebarNav.classList.toggle('hidden');
+        });
+
+        // Routing Logic
+        function handleRouting() {
+            // Get hash, default to #welcome
+            const hash = window.location.hash || '#welcome';
+            const targetId = hash.substring(1);
+            
+            // Hide all sections
+            document.querySelectorAll('.policy-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active styling from all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+                link.classList.add('hover:bg-slate-100', 'text-slate-700');
+            });
+
+            // Show target section
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                
+                // Add active styling to corresponding nav link
+                const activeLink = document.querySelector(`.nav-link[data-target="${targetId}"]`);
+                if (activeLink) {
+                    activeLink.classList.remove('hover:bg-slate-100', 'text-slate-700');
+                    activeLink.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+                }
+            } else {
+                // Fallback to welcome if hash is invalid
+                document.getElementById('welcome').classList.add('active');
+                window.location.hash = '#welcome';
+            }
+
+            // On mobile, hide sidebar after clicking a link
+            if (window.innerWidth < 640 && !sidebarNav.classList.contains('hidden')) {
+                sidebarNav.classList.add('hidden');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Copy Link to Clipboard
+        function copyLink(hash) {
+            // Get the full URL without the current hash, then append the new hash
+            const url = window.location.origin + window.location.pathname + hash;
+            
+            // Create a temporary textarea to copy from (handles iframe/clipboard API restrictions)
+            const tempInput = document.createElement("input");
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            // Show toast
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Listen for hash changes (back/forward buttons, clicking links)
+        window.addEventListener('hashchange', handleRouting);
+
+        // Initial load
+        window.addEventListener('DOMContentLoaded', handleRouting);
+    </script>
+</body>
+</html>
+
+```
